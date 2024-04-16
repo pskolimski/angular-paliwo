@@ -1,0 +1,63 @@
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button
+      class="nav-link"
+      [class.active]="page === 'average_consumption'"
+      (click)="setActivePage('average_consumption')"
+      id="avarage-consumption-tab"
+      data-bs-toggle="tab"
+      data-bs-target="#avarage-consumption"
+      type="button"
+      role="tab"
+      aria-controls="avarage-consumption"
+      aria-selected="false"
+    >
+      Średnie spalanie
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button
+      class="nav-link"
+      [class.active]="page === 'trip_cost'"
+      (click)="setActivePage('trip_cost')"
+      id="trip-cost-tab"
+      data-bs-toggle="tab"
+      data-bs-target="#trip-cost"
+      type="button"
+      role="tab"
+      aria-controls="trip-cost"
+      aria-selected="false"
+    >
+      Koszt przejazdu
+    </button>
+  </li>
+</ul>
+
+<div class="p-3" *ngIf="page == 'average_consumption'">
+  <h2>Średnie spalanie</h2>
+
+  <form class="my-4">
+    <div class="mb-3">
+      <label for="kilometers" class="form-label">Przejechane kilometry</label>
+      <input type="number" class="form-control" id="kilometers" />
+    </div>
+    <div class="mb-3">
+      <label for="fuel" class="form-label">Typ paliwa</label>
+      <select class="form-control" id="fuel">
+        <option value="Benzyna">Benzyna</option>
+        <option value="Diesel">Diesel</option>
+        <option value="Gaz">Gaz</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="tripcost" class="form-label">Koszt trasy</label>
+      <input type="number" class="form-control" id="tripcost" />
+    </div>
+    <button type="submit" class="btn btn-primary">Oblicz</button>
+  </form>
+</div>
+
+<div *ngIf="page == 'trip_cost'">
+  <p>test2</p>
+</div>
