@@ -1,0 +1,48 @@
+<h2>Koszt trasy</h2>
+
+<form class="my-4" [formGroup]="costForm" (submit)="getTripCost($event)">
+  <div class="mb-3">
+    <label for="kilometers" class="form-label">Przejechane kilometry</label>
+    <div class="input-group">
+      <input
+        type="number"
+        class="form-control"
+        id="kilometers"
+        formControlName="distance"
+        placeholder="np. 100"
+      />
+      <span class="input-group-text" id="basic-addon2">km</span>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="fuel" class="form-label">Typ paliwa</label>
+    <select class="form-control" id="fuel" formControlName="fuelType">
+      <option value="Benzyna">Benzyna</option>
+      <option value="Diesel">Diesel</option>
+      <option value="Gaz">Gaz</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="tripcost" class="form-label">Średnie spalanie</label>
+    <div class="input-group">
+      <input
+        type="number"
+        class="form-control"
+        id="tripcost"
+        formControlName="averageConsumption"
+        placeholder="np. 10"
+      />
+      <span class="input-group-text" id="basic-addon2">l/100km</span>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Oblicz koszt przejazdu</button>
+</form>
+
+<div *ngIf="cost != 0" class="alert alert-success" role="alert">
+  Koszt przejazdu wynosi: <b>{{ cost.toFixed(2) }}zł</b><br />
+  Potrzebne paliwo: <b>{{ litersNeeded.toFixed(2) }}l</b>
+</div>
+
+<div *ngIf="error" class="alert alert-danger" role="alert">
+  {{ error }}
+</div>

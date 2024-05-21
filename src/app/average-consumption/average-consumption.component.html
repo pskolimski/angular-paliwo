@@ -1,0 +1,44 @@
+<h2>Średnie spalanie</h2>
+
+<form
+  class="my-4"
+  [formGroup]="averageForm"
+  (ngSubmit)="getAverageConsumption($event)"
+>
+  <div class="mb-3">
+    <label for="kilometers" class="form-label">Przejechane kilometry</label>
+
+    <div class="input-group">
+      <input
+        type="number"
+        class="form-control"
+        id="kilometers"
+        formControlName="distance"
+        placeholder="np. 100"
+      />
+      <span class="input-group-text" id="basic-addon2">km</span>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="tripcost" class="form-label">Zatankowanych litrów</label>
+    <div class="input-group">
+      <input
+        type="number"
+        class="form-control"
+        id="tripcost"
+        formControlName="liters"
+        placeholder="np. 10"
+      />
+      <span class="input-group-text" id="basic-addon2">l</span>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Oblicz średnie spalanie</button>
+</form>
+
+<div *ngIf="error" class="alert alert-danger" role="alert">
+  {{ error }}
+</div>
+
+<div *ngIf="average != 0" class="alert alert-success" role="alert">
+  Średnie spalanie wynosi: <b>{{ average.toFixed(2) }}l/100km</b>
+</div>

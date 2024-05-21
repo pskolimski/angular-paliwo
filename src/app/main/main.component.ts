@@ -1,10 +1,12 @@
 import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
+import { AverageConsumptionComponent } from '../average-consumption/average-consumption.component';
+import { TripCostComponent } from '../trip-cost/trip-cost.component';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [NgIf],
+  imports: [NgIf, AverageConsumptionComponent, TripCostComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
 })
